@@ -106,3 +106,44 @@ Java 语言中的类、方法、变量、参数和包等都可以被标注。和
     @SafeVarargs - Java 7 开始支持，忽略任何使用参数为泛型变量的方法或构造函数调用产生的警告。
     @FunctionalInterface - Java 8 开始支持，标识一个匿名函数或函数式接口。
     @Repeatable - Java 8 开始支持，标识某注解可以在同一个声明上使用多次。
+
+### 自定义注解
+
+格式：
+
+    元注解
+    public @interface 注解名称{}
+
+本质：就是一个接口，默认集成Annotation接口
+
+```java
+public interface com.annotation.MyAnno extends java.lang.annotation.Annotation {
+}
+```
+
+属性：接口中可以定义的成员方法，接口中的抽象方法
+
+要求：
+
+1. 属性的返回值类型
+   1. 基本数据类型
+   2. String
+   3. 枚举
+   4. 注解
+   5. 以上类型的数组
+2. 定义了属性，在使用时需要给属性赋值
+   1. 如果定义属性时使用default初始化，则不需赋值
+   2. 只有一个属性需赋值时，且名称为value直接写值即可
+   3. 数组赋值时用{}包裹，只有一个值时可省略
+
+### 元注解
+
+描述注解的注解
+
+   * @Target：描述注解能够作用的位置
+   * @Retention：描述注解被保留的阶段
+   * @Documented：描述注解是否被抽取到api文档中
+   * @Inherited：描述注解是否被子类继承
+
+
+   

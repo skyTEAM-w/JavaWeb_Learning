@@ -19,7 +19,7 @@ public class ReflectTest {
         //1.2 加载配置文件，转换为一个集合
         //1.2.1 获取class下的配置文件
         ClassLoader classLoader = ReflectTest.class.getClassLoader();
-        InputStream resourceAsStream = classLoader.getResourceAsStream("pro.properties");
+        InputStream resourceAsStream = classLoader.getResourceAsStream("AnnoDoc/pro.properties");
         properties.load(resourceAsStream);
 
         //2. 获取配置文件中定义的数据
